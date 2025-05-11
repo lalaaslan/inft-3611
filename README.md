@@ -2,7 +2,7 @@
 
 httpServer_crash.go represents HTTP server that simultes an unreliable banking service.
 
-Algorithm uses a probabilistic model to simulate failure scenrios based on random number generation:
+Algorithm uses a probabilistic model to simulate failure scenarios based on random number generation:
 
 1. **Core Dump (0.5% chance)**
 
@@ -24,10 +24,13 @@ Make server progressively slower
 
 Nomal response `index.html`
 
-## Tsak 2
+## Task 2
 I am using gcloud, so I configure Docker authentication for Artifact Registry by `gcloud auth configure-docker me-central1-docker.pkg.dev`.
 
 The tag should has the following stucture: `HOSTNAME/PROJECT_ID/REPOSITORY/IMGE:TAG`.
+
+
+Steps of creatig image & pushing one:
 
 1. Install Docker and navigate to the repo directory in Terminal.
 
@@ -37,7 +40,7 @@ The tag should has the following stucture: `HOSTNAME/PROJECT_ID/REPOSITORY/IMGE:
 
 4. The image was successfuly uploded to Artifact Registry. 
 
-The final imge's digets are `sha256:116116b5bb44d1dc362cb345b15153d98e0cf36caaa15fa7b076f0d03508d858`.
+The final image's digets are `sha256:116116b5bb44d1dc362cb345b15153d98e0cf36caaa15fa7b076f0d03508d858`.
 
 Image path is `me-central1-docker.pkg.dev/inft-3611/unreliable-banking-image/unreliable-bank:lala-aslan-v2`.
 
@@ -54,3 +57,9 @@ In container part I defined image which was created in Task 2 and port 8080 for 
 I also add `google_iam_policy` where I defined `roles/run.invoker` to `AllUsers` to make Cloud Function working without uthentication.
 
 I ran commands `terraform init` and `terraform apply` for creating defined service in Google Cloud.
+
+## Task 5
+
+The Simple Client runs endpoint `/getbalance`. I selected test count by 100 and used sleep betwwen them by 1 second to semulate steady usage. In each test code print result: success or faild.
+
+By this we also may test our SLO systems and validate their compliance, and observe behavior of service.
