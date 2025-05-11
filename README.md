@@ -20,9 +20,9 @@ Send `error.html` file, simulate database unavailability
 
 Make server progressively slower
 
-5. **Successful Responce (30% chance)**
+5. **Successful Response (30% chance)**
 
-Nomal response `index.html`
+Normal response `index.html`
 
 ## Task 2
 I am using gcloud, so I configure Docker authentication for Artifact Registry by `gcloud auth configure-docker me-central1-docker.pkg.dev`.
@@ -54,12 +54,16 @@ I used `ingress = "INGRESS_TRAFFIC_ALL"` to allow direct access to service from 
 
 In container part I defined image which was created in Task 2 and port 8080 for matching with port in Go-file.
 
-I also add `google_iam_policy` where I defined `roles/run.invoker` to `AllUsers` to make Cloud Function working without uthentication.
+I also add `google_iam_policy` where I defined `roles/run.invoker` to `AllUsers` to make Cloud Function working without authentication.
 
 I ran commands `terraform init` and `terraform apply` for creating defined service in Google Cloud.
 
 ## Task 5
 
-The Simple Client runs endpoint `/getbalance`. I selected test count by 100 and used sleep betwwen them by 1 second to semulate steady usage. In each test code print result: success or faild.
+The Simple Client runs endpoint `/getbalance`. I selected test count by 100 and used sleep betwwen them by 1 second to simulate steady usage. In each test code print result: success or faild.
 
 By this we also may test our SLO systems and validate their compliance, and observe behavior of service.
+
+## Video URL
+
+[Assignment Video](https://youtu.be/rQSlPorgMOg)
